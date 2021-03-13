@@ -1,6 +1,7 @@
 [user]
   name = Anthony Roussel
   email = anthony.roussel17@gmail.com
+  signingkey = C3BD099FC6799EF8BAB606EF69661D2F99BE26B6
 
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
