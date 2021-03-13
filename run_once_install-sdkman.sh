@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -e
+curl -s "https://get.sdkman.io" | bash

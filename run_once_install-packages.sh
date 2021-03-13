@@ -26,4 +26,6 @@ sudo apt-get install --yes \
   jq \
   kubectl \
   google-cloud-sdk \
-  postgresql-client
+  postgresql-client \
+  unzip \
+  zip
