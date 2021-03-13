@@ -22,6 +22,7 @@ sudo curl -fsSLo /etc/apt/trusted.gpg.d/kubernetes.gpg https://packages.cloud.go
 # Install packages
 sudo apt-get update
 sudo apt-get install --yes \
+  git-lfs \
   jq \
   kubectl \
   google-cloud-sdk \
