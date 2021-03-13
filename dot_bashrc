@@ -115,3 +115,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Load all files in ~/.bashrc.d/*
+source <(cat ~/.bashrc.d/*.bashrc 2>/dev/null)
