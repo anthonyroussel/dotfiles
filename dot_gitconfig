@@ -10,3 +10,6 @@
   co = checkout
   sh = show
   pu = pull
+
+[pull]
+  rebase = false
