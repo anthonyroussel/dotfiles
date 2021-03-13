@@ -14,3 +14,7 @@
 
 [pull]
   rebase = false
+
+[commit]
+  # Automatically sign commits with gpg user.signingkey
+  gpgsign = true
