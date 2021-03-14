@@ -25,6 +25,14 @@ sudo tee /etc/apt/sources.list.d/kubernetes.list &>/dev/null <<EOF
 deb [signed-by=/etc/apt/trusted.gpg.d/kubernetes.gpg] https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 
+# Install Helm APT sources
+# https://helm.sh/docs/intro/install/#from-apt-debianubuntu
+#
+sudo curl -fsSLo /etc/apt/trusted.gpg.d/helm.asc https://baltocdn.com/helm/signing.asc
+sudo tee /etc/apt/sources.list.d/helm.list &>/dev/null <<EOF
+deb https://baltocdn.com/helm/stable/debian/ all main
+EOF
+
 # Install Docker APT sources
 # https://docs.docker.com/engine/install/debian/
 #
@@ -56,6 +64,7 @@ sudo apt-get install --yes \
   git-lfs \
   jq \
   kubectl \
+  helm \
   google-cloud-sdk \
   nodejs \
   postgresql-client \
