@@ -51,10 +51,16 @@ deb-src https://deb.nodesource.com/node_15.x {{ .chezmoi.osRelease.versionCodena
 EOF
 
 # Install Hashicorp APT sources
-curl -fsSL https://apt.releases.hashicorp.com/gpg |sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/hashicorp.gpg
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/hashicorp.gpg
 sudo tee /etc/apt/sources.list.d/hashicorp.list &>/dev/null <<EOF
 deb [arch={{ .chezmoi.arch }}] https://apt.releases.hashicorp.com {{ .chezmoi.osRelease.versionCodename }} main
 # deb-src [arch={{ .chezmoi.arch }}] https://apt.releases.hashicorp.com {{ .chezmoi.osRelease.versionCodename }} main
+EOF
+
+# Install VS Code APT sources
+curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo tee /etc/apt/sources.list.d/microsoft.list &>/dev/null <<EOF
+deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/repos/code stable main
 EOF
 
 # Install packages
