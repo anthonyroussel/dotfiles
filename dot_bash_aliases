@@ -1,0 +1,33 @@
+alias open='gio open'
+
+# Copy and paste aliases
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
+
+# iptables statistics
+alias ipstat='sudo watch --interval 0 "iptables -nvL"'
+
+# Upgrade
+alias upgrade='sudo apt update && sudo apt upgrade'
+
+# Weather
+weather() {
+  local city=$1
+  curl -s https://wttr.in/$city
+}
+alias weather=weather
+
+# Show Aurora Kp index
+aurora() {
+  curl -s "https://services.swpc.noaa.gov/text/3-day-forecast.txt" | grep "NOAA Kp index breakdown" -A 11
+}
+alias aurora=aurora
+
+# Generate a random password
+genpass() {
+  </dev/urandom tr -dc '[:alnum:]!@#$%' | head -c15; echo
+}
+alias genpass=genpass
+
+# GnuPG
+alias gpg-bye="gpg-connect-agent reloadagent /bye"
