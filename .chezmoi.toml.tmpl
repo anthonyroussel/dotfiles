@@ -5,3 +5,14 @@
   name = "{{ $git_name }}"
   email = "{{ $git_email }}"
   signingkey = "{{ $git_signingkey }}"
+
+[data.proxy]
+  http = "http://localhost:3148"
+  https = "http://localhost:3148"
+  exclusions = [
+    "localhost",
+    "127.0.0.0/8",
+    "10.0.0.0/8",
+    "172.16.0.0/12",
+    "192.168.0.0/16"
+  ]

@@ -1,0 +1,11 @@
+{
+{{- if hasKey . "proxy" }}
+  "proxies": {
+    "default": {
+      "httpProxy": "{{ .proxy.http }}",
+      "httpsProxy": "{{ .proxy.https }}",
+      "noProxy": "{{ .proxy.exclusions | join "," }}"
+    }
+  }
+{{- end }}
+}
