@@ -1,18 +1,21 @@
-{{- $git_name := promptString "git_name" -}}
-{{- $git_email := promptString "git_email" -}}
-{{- $git_signingkey := promptString "git_signingkey" -}}
 [data.git]
-  name = "{{ $git_name }}"
-  email = "{{ $git_email }}"
-  signingkey = "{{ $git_signingkey }}"
+name = "{{ $git_name }}"
+email = "{{ $git_email }}"
+signingkey = "{{ $git_signingkey }}"
 
 [data.proxy]
-  http = "http://localhost:3148"
-  https = "http://localhost:3148"
-  exclusions = [
-    "localhost",
-    "127.0.0.0/8",
-    "10.0.0.0/8",
-    "172.16.0.0/12",
-    "192.168.0.0/16"
-  ]
+http = "http://localhost:3128"
+https = "http://localhost:3128"
+exclusions = [
+  "localhost",
+  "127.0.0.0/8",
+  "10.0.0.0/8",
+  "172.16.0.0/12",
+  "192.168.0.0/16"
+]
+
+[data.npmrc]
+registry = "http://localhost:8080"
+always_auth = true
+registries = """
+"""
