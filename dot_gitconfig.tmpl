@@ -1,7 +1,7 @@
 [user]
-  name = Anthony Roussel
-  email = anthony.roussel@vialink.fr
-  signingkey = 14E427626DC1005F6DBA62DBFDBB547F0FC4BFB7
+  name = {{ .git.name }}
+  email = {{ .git.email }}
+  signingkey = {{ .git.signingkey }}
 
 [alias]
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
