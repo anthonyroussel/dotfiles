@@ -63,6 +63,12 @@ sudo tee /etc/apt/sources.list.d/microsoft.list &>/dev/null <<EOF
 deb [arch=amd64,arm64,armhf signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/repos/code stable main
 EOF
 
+# Install MongoDB APT sources
+curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/mongodb.gpg
+sudo tee /etc/apt/sources.list.d/mongodb.list &>/dev/null <<EOF
+deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse
+EOF
+
 # Install packages
 sudo apt-get update
 sudo apt-get install --yes \
