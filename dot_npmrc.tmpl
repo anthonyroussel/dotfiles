@@ -4,7 +4,7 @@ cafile=/etc/ssl/certs/ca-certificates.crt
 always-auth={{ .npmrc.always_auth }}
 {{- end }}
 
-{{- if hasKey . "npmrc" }}
+{{ if hasKey . "npmrc" -}}
 # Registries
 {{ .npmrc.registries }}
-{{- end }}
+{{- end -}}
