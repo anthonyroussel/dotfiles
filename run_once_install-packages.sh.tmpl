@@ -20,7 +20,7 @@ EOF
 # Install kubectl APT sources
 # https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-using-native-package-management
 #
-sudo curl -fsSLo /etc/apt/trusted.gpg.d/kubernetes.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+curl -sS https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo tee /etc/apt/trusted.gpg.d/kubernetes.gpg >/dev/null
 sudo tee /etc/apt/sources.list.d/kubernetes.list &>/dev/null <<EOF
 deb [signed-by=/etc/apt/trusted.gpg.d/kubernetes.gpg] https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
@@ -28,7 +28,7 @@ EOF
 # Install Helm APT sources
 # https://helm.sh/docs/intro/install/#from-apt-debianubuntu
 #
-sudo curl -fsSLo /etc/apt/trusted.gpg.d/helm.asc https://baltocdn.com/helm/signing.asc
+curl -fsSL https://baltocdn.com/helm/signing.asc | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/helm.gpg
 sudo tee /etc/apt/sources.list.d/helm.list &>/dev/null <<EOF
 deb https://baltocdn.com/helm/stable/debian/ all main
 EOF
