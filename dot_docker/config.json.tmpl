@@ -1,4 +1,5 @@
 {
+  "credsStore": "{{ .docker.creds_store }}",
 {{- if hasKey . "proxy" }}
   "proxies": {
     "default": {
