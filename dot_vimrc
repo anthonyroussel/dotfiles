@@ -32,9 +32,6 @@ Plugin 'neomake/neomake'
 " comment
 Plugin 'chrisbra/vim-commentary'
 
-" latex (requires latexmk installed)
-Plugin 'lervag/vimtex'
-
 " draw
 Plugin 'DrawIt'
 
@@ -81,11 +78,6 @@ let g:airline#extensions#tabline#enabled = 1
 " markdown plugin {
 " // disable text folding
 let g:vim_markdown_folding_disabled = 1
-" }
-
-" latex plugin {
-let g:vimtex_disable_version_warning = 1
-let g:vimtex_compiler_latexmk = {'callback' : 0}
 " }
 
 " neomake {
