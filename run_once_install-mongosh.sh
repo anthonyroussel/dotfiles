@@ -10,4 +10,6 @@ deb [signed-by=/etc/apt/trusted.gpg.d/mongo.gpg] http://repo.mongodb.org/apt/deb
 EOF
 
 sudo apt-get update
-sudo apt-get install --yes mongodb-mongosh
+sudo apt-get install --yes \
+  mongodb-mongosh \
+  mongodb-database-tools
