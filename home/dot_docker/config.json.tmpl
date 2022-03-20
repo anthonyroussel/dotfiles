@@ -8,5 +8,13 @@
       "noProxy": "{{ .proxy.exclusions | join "," }}"
     }
 {{- end }}
+  },
+  "credHelpers": {
+    "gcr.io": "gcloud",
+    "us.gcr.io": "gcloud",
+    "eu.gcr.io": "gcloud",
+    "asia.gcr.io": "gcloud",
+    "staging-k8s.gcr.io": "gcloud",
+    "marketplace.gcr.io": "gcloud"
   }
 }
