@@ -1,12 +1,12 @@
 {
   "credsStore": "{{ .docker.creds_store }}",
-{{- if hasKey . "proxy" }}
   "proxies": {
+{{- if hasKey . "proxy" }}
     "default": {
       "httpProxy": "{{ .proxy.http }}",
       "httpsProxy": "{{ .proxy.https }}",
       "noProxy": "{{ .proxy.exclusions | join "," }}"
     }
-  }
 {{- end }}
+  }
 }
