@@ -11,3 +11,7 @@
 [".asdf/plugins/terraform"]
   type = "git-repo"
   url = "https://github.com/asdf-community/asdf-hashicorp.git"
+
+[".asdf/plugins/kubectl"]
+  type = "git-repo"
+  url = "https://github.com/asdf-community/asdf-kubectl.git"
