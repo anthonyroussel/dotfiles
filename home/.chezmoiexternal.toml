@@ -10,18 +10,25 @@
   [".asdf".pull]
       args = ["origin", "v0.9.0"]
 
+{{- if .terraform }}
 [".asdf/plugins/terraform"]
   type = "git-repo"
   url = "https://github.com/asdf-community/asdf-hashicorp.git"
+{{- end }}
 
+{{- if .kubernetes }}
 [".asdf/plugins/kubectl"]
   type = "git-repo"
   url = "https://github.com/asdf-community/asdf-kubectl.git"
+{{- end }}
 
+{{- if .nodejs }}
 [".asdf/plugins/nodejs"]
   type = "git-repo"
   url = "https://github.com/asdf-vm/asdf-nodejs.git"
+{{- end }}
 
+{{- if .java }}
 [".asdf/plugins/java"]
   type = "git-repo"
   url = "https://github.com/halcyon/asdf-java.git"
@@ -29,3 +36,4 @@
 [".asdf/plugins/maven"]
   type = "git-repo"
   url = "https://github.com/halcyon/asdf-maven.git"
+{{- end }}

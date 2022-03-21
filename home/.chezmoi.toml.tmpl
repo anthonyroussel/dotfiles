@@ -1,5 +1,9 @@
 {{/* boolean feature tags */}}
 {{- $corporate := false -}}{{/* true if this machine should have corporate configuration (proxy, private registries) */}}
+{{- $java := false -}}{{/* true if this machine is used for Java work */}}
+{{- $kubernetes := false -}}{{/* true if this machine is used for Kubernetes work */}}
+{{- $nodejs := false -}}{{/* true if this machine is used for Node.js work */}}
+{{- $terraform := false -}}{{/* true if this machine is used for Terraform work */}}
 {{- "" -}}
 
 {{- if stdinIsATTY -}}
@@ -8,31 +12,58 @@
 {{-   else -}}
 {{-     $corporate = promptBool "corporate" -}}
 {{-   end -}}
+{{-   if hasKey . "java" -}}
+{{-     $java = .java -}}
+{{-   else -}}
+{{-     $java = promptBool "java" -}}
+{{-   end -}}
+{{-   if hasKey . "kubernetes" -}}
+{{-     $kubernetes = .kubernetes -}}
+{{-   else -}}
+{{-     $kubernetes = promptBool "kubernetes" -}}
+{{-   end -}}
+{{-   if hasKey . "nodejs" -}}
+{{-     $nodejs = .nodejs -}}
+{{-   else -}}
+{{-     $nodejs = promptBool "nodejs" -}}
+{{-   end -}}
+{{-   if hasKey . "terraform" -}}
+{{-     $terraform = .terraform -}}
+{{-   else -}}
+{{-     $terraform = promptBool "terraform" -}}
+{{-   end -}}
 {{- end -}}
 
+[data]
+  corporate = {{ $corporate }}
+  java = {{ $java }}
+  kubernetes = {{ $kubernetes }}
+  nodejs = {{ $nodejs }}
+  terraform = {{ $terraform }}
+
 [data.git]
-name = "Anthony Roussel"
-email = "anthony.roussel17@gmail.com"
-signingkey = "291831CAD18D76DC0715465F379FF498F4BDCCD9"
+  name = "Anthony Roussel"
+  email = "anthony.roussel17@gmail.com"
+  signingkey = "291831CAD18D76DC0715465F379FF498F4BDCCD9"
 
 {{- if $corporate }}
 [data.proxy]
-http = "http://localhost:3128"
-https = "http://localhost:3128"
-exclusions = [
-  "localhost",
-  "127.0.0.0/8",
-  "10.0.0.0/8",
-  "172.16.0.0/12",
-  "192.168.0.0/16"
-]
+  http = "http://localhost:3128"
+  https = "http://localhost:3128"
+  exclusions = [
+    "localhost",
+    "127.0.0.0/8",
+    "10.0.0.0/8",
+    "172.16.0.0/12",
+    "192.168.0.0/16"
+  ]
 
 [data.npmrc]
-registry = "http://localhost:8080"
-always_auth = true
-registries = """
-"""
+  registry = "http://localhost:8080"
+  always_auth = true
+  registries = """
+  """
 {{- end }}
 
 [data.docker]
-creds_store = "secretservice"
+  creds_store = "secretservice"

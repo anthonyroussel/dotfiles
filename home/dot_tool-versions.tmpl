@@ -1,0 +1,13 @@
+{{- if .terraform }}
+terraform 1.1.7
+{{- end }}
+{{- if .kubernetes }}
+kubectl 1.23.5
+{{- end }}
+{{- if .nodejs }}
+nodejs 17.7.2
+{{- end }}
+{{- if .java }}
+java temurin-17.0.2+8
+maven 3.8.5
+{{- end }}
