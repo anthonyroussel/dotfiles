@@ -7,6 +7,8 @@
   url = "https://github.com/asdf-vm/asdf.git"
   [".asdf".clone]
       args = ["--branch", "v0.9.0"]
+  [".asdf".pull]
+      args = ["origin", "v0.9.0"]
 
 [".asdf/plugins/terraform"]
   type = "git-repo"
@@ -19,3 +21,11 @@
 [".asdf/plugins/nodejs"]
   type = "git-repo"
   url = "https://github.com/asdf-vm/asdf-nodejs.git"
+
+[".asdf/plugins/java"]
+  type = "git-repo"
+  url = "https://github.com/halcyon/asdf-java.git"
+
+[".asdf/plugins/maven"]
+  type = "git-repo"
+  url = "https://github.com/halcyon/asdf-maven.git"

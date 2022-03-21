@@ -121,7 +121,3 @@ source <(cat ~/.bashrc.d/*.bashrc 2>/dev/null)
 
 # Load asdf
 . $HOME/.asdf/asdf.sh
-
-# Load sdkman
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "${SDKMAN_DIR}/bin/sdkman-init.sh" ]] && source "${SDKMAN_DIR}/bin/sdkman-init.sh"
