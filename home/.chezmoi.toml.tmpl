@@ -1,8 +1,21 @@
+{{/* boolean feature tags */}}
+{{- $corporate := false -}}{{/* true if this machine should have corporate configuration (proxy, private registries) */}}
+{{- "" -}}
+
+{{- if stdinIsATTY -}}
+{{-   if hasKey . "corporate" -}}
+{{-     $corporate = .corporate -}}
+{{-   else -}}
+{{-     $corporate = promptBool "corporate" -}}
+{{-   end -}}
+{{- end -}}
+
 [data.git]
 name = "Anthony Roussel"
 email = "anthony.roussel17@gmail.com"
 signingkey = "291831CAD18D76DC0715465F379FF498F4BDCCD9"
 
+{{- if $corporate }}
 [data.proxy]
 http = "http://localhost:3128"
 https = "http://localhost:3128"
@@ -19,6 +32,7 @@ registry = "http://localhost:8080"
 always_auth = true
 registries = """
 """
+{{- end }}
 
 [data.docker]
 creds_store = "secretservice"
