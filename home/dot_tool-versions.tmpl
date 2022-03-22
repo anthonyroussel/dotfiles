@@ -1,13 +1,17 @@
 {{- if .terraform }}
+# renovate: datasource=github-releases depName=hashicorp/terraform
 terraform 1.1.7
 {{- end }}
 {{- if .kubernetes }}
+# renovate: datasource=github-releases depName=kubernetes/kubernetes
 kubectl 1.23.5
 {{- end }}
 {{- if .nodejs }}
+# renovate: datasource=github-releases depName=nodejs/node
 nodejs 17.7.2
 {{- end }}
 {{- if .java }}
 java temurin-17.0.2+8
+# renovate: datasource=github-releases depName=apache/maven
 maven 3.8.5
 {{- end }}
