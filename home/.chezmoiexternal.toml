@@ -20,6 +20,10 @@
 [".asdf/plugins/kubectl"]
   type = "git-repo"
   url = "https://github.com/asdf-community/asdf-kubectl.git"
+
+[".asdf/plugins/helm"]
+  type = "git-repo"
+  url = "https://github.com/Antiarchitect/asdf-helm.git"
 {{- end }}
 
 {{- if .nodejs }}
