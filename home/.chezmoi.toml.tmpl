@@ -4,6 +4,7 @@
 {{- $kubernetes := false -}}{{/* true if this machine is used for Kubernetes work */}}
 {{- $nodejs := false -}}{{/* true if this machine is used for Node.js work */}}
 {{- $terraform := false -}}{{/* true if this machine is used for Terraform work */}}
+{{- $hugo := false -}}{{/* true if this machine is used for Hugo work */}}
 {{- "" -}}
 
 {{- if stdinIsATTY -}}
@@ -32,6 +33,11 @@
 {{-   else -}}
 {{-     $terraform = promptBool "terraform" -}}
 {{-   end -}}
+{{-   if hasKey . "hugo" -}}
+{{-     $hugo = .hugo -}}
+{{-   else -}}
+{{-     $hugo = promptBool "hugo" -}}
+{{-   end -}}
 {{- end -}}
 
 [data]
@@ -40,6 +46,7 @@
   kubernetes = {{ $kubernetes }}
   nodejs = {{ $nodejs }}
   terraform = {{ $terraform }}
+  hugo = {{ $hugo }}
 
 [data.git]
   name = "Anthony Roussel"
