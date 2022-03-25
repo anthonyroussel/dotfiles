@@ -1,9 +1,8 @@
 AddKeysToAgent yes
 
-Host github.com
-  User git
-  IdentityFile ~/.ssh/keys/xps
 
-Host sea.roussel.dev
-  User aroussel
-  IdentityFile ~/.ssh/keys/digitalocean
+{{ range .ssh.hosts }}
+Host {{ .host }}
+  User {{ .user }}
+  IdentityFile {{ .identity_file }}
+{{ end -}}

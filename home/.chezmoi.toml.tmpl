@@ -74,3 +74,12 @@
 
 [data.docker]
   creds_store = "secretservice"
+
+[data.ssh]
+hosts = [
+  {
+    host = "github.com",
+    user = "git",
+    identity_file = "~/.ssh/keys/xps"
+  }
+]
