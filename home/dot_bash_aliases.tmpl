@@ -7,8 +7,10 @@ alias pbpaste='xclip -selection clipboard -o'
 # iptables statistics
 alias ipstat='sudo watch --interval 0 "iptables -nvL"'
 
+{{ if eq .chezmoi.osRelease.id "debian" "ubuntu" -}}
 # Upgrade
 alias upgrade='sudo apt update && sudo apt upgrade'
+{{ end -}}
 
 # Weather
 weather() {
