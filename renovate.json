@@ -6,12 +6,12 @@
   "regexManagers": [
     {
       "fileMatch": [
-        "^home/dot_tool-versions\\.tmpl$"
+        "^home/\\.chezmoidata\\.toml$"
       ],
       "matchStrings": [
-        "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>[^\\s]+?)\\s[a-z]+? (?<currentValue>.+?)\\s"
+        "# renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>[^\\s]+?)( extractVersionTemplate=(?<extractVersionTemplate>.*?))?\\s[a-z]+? = \"(?<currentValue>.+?)\"\\s"
       ],
-      "extractVersionTemplate": "^v(?<version>.*)$"
+      "extractVersionTemplate": "{{#if extractVersionTemplate}}{{{extractVersionTemplate}}}{{else}}^v(?<version>.*)${{/if}}"
     }
   ]
 }

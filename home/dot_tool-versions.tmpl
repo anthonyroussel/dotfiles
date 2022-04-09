@@ -1,23 +1,21 @@
 {{- if .terraform }}
-# renovate: datasource=github-releases depName=hashicorp/terraform
-terraform 1.1.8
+terraform {{ .versions.terraform }}
 {{- end }}
+
 {{- if .kubernetes }}
-# renovate: datasource=github-releases depName=kubernetes/kubernetes
-kubectl 1.23.5
-# renovate: datasource=github-releases depName=helm/helm
-helm 3.8.1
+kubectl {{ .versions.kubectl }}
+helm {{ .versions.helm }}
 {{- end }}
+
 {{- if .nodejs }}
-# renovate: datasource=github-releases depName=nodejs/node
-nodejs 17.9.0
+nodejs {{ .versions.nodejs }}
 {{- end }}
+
 {{- if .java }}
-java temurin-17.0.2+8
-# renovate: datasource=github-releases depName=apache/maven
-maven 3.8.5
+java temurin-{{ .versions.java }}
+maven {{ .versions.maven }}
 {{- end }}
+
 {{- if .hugo }}
-# renovate: datasource=github-releases depName=gohugoio/hugo
-hugo 0.96.0
+hugo {{ .versions.hugo }}
 {{- end }}

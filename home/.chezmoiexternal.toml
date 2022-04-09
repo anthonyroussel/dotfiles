@@ -6,9 +6,9 @@
   type = "git-repo"
   url = "https://github.com/asdf-vm/asdf.git"
   [".asdf".clone]
-      args = ["--branch", "v0.9.0"]
+      args = ["--branch", "v{{ .versions.asdf }}"]
   [".asdf".pull]
-      args = ["origin", "v0.9.0"]
+      args = ["origin", "v{{ .versions.asdf }}"]
 
 {{- if .terraform }}
 [".asdf/plugins/terraform"]

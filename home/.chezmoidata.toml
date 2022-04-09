@@ -1,0 +1,24 @@
+[versions]
+# renovate: datasource=github-releases depName=asdf-vm/asdf
+asdf = "0.9.0"
+
+# renovate: datasource=github-releases depName=hashicorp/terraform
+terraform = "1.1.8"
+
+# renovate: datasource=github-releases depName=kubernetes/kubernetes
+kubectl = "1.23.5"
+
+# renovate: datasource=github-releases depName=helm/helm
+helm = "3.8.1"
+
+# renovate: datasource=github-releases depName=nodejs/node
+nodejs = "17.9.0"
+
+# renovate: datasource=github-releases depName=gohugoio/hugo
+hugo = "0.96.0"
+
+# renovate: datasource=github-releases depName=adoptium/temurin17-binaries extractVersionTemplate=^jdk-(?<version>.*)$
+java = "17.0.2+8"
+
+# renovate: datasource=github-releases depName=apache/maven extractVersionTemplate=^maven-(?<version>.*)$
+maven = "3.8.5"
