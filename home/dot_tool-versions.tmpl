@@ -1,5 +1,6 @@
 {{- if .terraform }}
 terraform {{ .versions.terraform }}
+doctl {{ .versions.doctl }}
 {{- end }}
 
 {{- if .kubernetes }}
