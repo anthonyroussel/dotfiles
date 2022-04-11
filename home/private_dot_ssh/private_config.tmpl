@@ -6,5 +6,7 @@ Host {{ .host }}
 {{- if hasKey . "identity_agent" }}
   IdentityAgent {{ .identity_agent }}
 {{- end }}
+{{- if hasKey . "identity_file" }}
   IdentityFile {{ .identity_file }}
+{{- end }}
 {{ end }}
