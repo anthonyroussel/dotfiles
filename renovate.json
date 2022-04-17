@@ -3,6 +3,10 @@
   "extends": [
     "config:base"
   ],
+  "labels": [
+    "dependencies"
+  ],
+  "reviewersFromCodeOwners": true,
   "regexManagers": [
     {
       "fileMatch": [
