@@ -18,7 +18,7 @@ nodejs = "18.0.0"
 hugo = "0.97.3"
 
 # renovate: datasource=github-releases depName=adoptium/temurin17-binaries extractVersionTemplate=^jdk-(?<version>.*)$
-java = "17.0.2+8"
+java = "17.0.3+7"
 
 # renovate: datasource=github-releases depName=apache/maven extractVersionTemplate=^maven-(?<version>.*)$
 maven = "3.8.5"
