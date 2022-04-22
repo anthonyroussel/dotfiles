@@ -20,3 +20,7 @@ maven {{ .versions.maven }}
 {{- if .hugo }}
 hugo {{ .versions.hugo }}
 {{- end }}
+
+{{- if .github }}
+github-cli {{ .versions.github_cli }}
+{{- end }}

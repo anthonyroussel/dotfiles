@@ -51,3 +51,9 @@
   type = "git-repo"
   url = "https://github.com/nklmilojevic/asdf-hugo.git"
 {{- end }}
+
+{{- if .github }}
+[".asdf/plugins/github-cli"]
+  type = "git-repo"
+  url = "https://github.com/bartlomiejdanek/asdf-github-cli.git"
+{{- end }}
