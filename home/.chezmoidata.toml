@@ -6,7 +6,7 @@ asdf = "0.10.0"
 terraform = "1.1.9"
 
 # renovate: datasource=github-releases depName=kubernetes/kubernetes
-kubectl = "1.23.6"
+kubectl = "1.24.0"
 
 # renovate: datasource=github-releases depName=helm/helm
 helm = "3.8.2"
