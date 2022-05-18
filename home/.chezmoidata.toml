@@ -9,7 +9,7 @@ terraform = "1.1.9"
 kubectl = "1.24.0"
 
 # renovate: datasource=github-releases depName=helm/helm
-helm = "3.8.2"
+helm = "3.9.0"
 
 # renovate: datasource=github-releases depName=nodejs/node
 nodejs = "18.2.0"
