@@ -1,6 +1,6 @@
 [versions]
 # renovate: datasource=github-releases depName=asdf-vm/asdf
-asdf = "0.10.0"
+asdf = "0.10.1"
 
 # renovate: datasource=github-releases depName=hashicorp/terraform
 terraform = "1.1.9"
