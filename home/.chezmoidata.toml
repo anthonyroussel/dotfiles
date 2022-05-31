@@ -15,7 +15,7 @@ helm = "3.9.0"
 nodejs = "18.2.0"
 
 # renovate: datasource=github-releases depName=gohugoio/hugo
-hugo = "0.99.1"
+hugo = "0.100.0"
 
 # renovate: datasource=github-releases depName=adoptium/temurin17-binaries extractVersionTemplate=^jdk-(?<version>.*)$
 java = "17.0.3+7"
