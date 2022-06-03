@@ -3,3 +3,4 @@
 [default]
 region = eu-west-3
 output = json
+credential_process = gopass show -n aws/anthony.roussel17@gmail.com.json
