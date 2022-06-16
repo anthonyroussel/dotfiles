@@ -24,7 +24,7 @@ java = "17.0.3+7"
 maven = "3.8.5"
 
 # renovate: datasource=github-releases depName=digitalocean/doctl
-doctl = "1.76.2"
+doctl = "1.77.0"
 
 # renovate: datasource=github-releases depName=github/cli
 github_cli = "2.8.0"
