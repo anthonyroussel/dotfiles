@@ -21,7 +21,7 @@ hugo = "0.101.0"
 java = "17.0.3+7"
 
 # renovate: datasource=github-releases depName=apache/maven extractVersionTemplate=^maven-(?<version>.*)$
-maven = "3.8.5"
+maven = "3.8.6"
 
 # renovate: datasource=github-releases depName=digitalocean/doctl
 doctl = "1.77.0"
