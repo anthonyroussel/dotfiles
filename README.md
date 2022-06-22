@@ -7,7 +7,7 @@ See https://www.chezmoi.io/docs/install/ for installation instructions.
 Then install the dotfiles with:
 
 ```bash
-$ chezmoi init git@github.com:anthonyroussel/chezmoi.git
+$ chezmoi init anthonyroussel
 ```
 
 # Configure
