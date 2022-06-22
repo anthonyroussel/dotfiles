@@ -1,5 +1,13 @@
 {
   packageOverrides = pkgs: with pkgs; {
+    myBootstrap = pkgs.buildEnv {
+      name = "myBootstrap";
+      paths = [
+        chezmoi
+        gopass
+      ];
+    };
+
     myCloud = pkgs.buildEnv {
       name = "myCloud";
       paths = [
@@ -9,11 +17,22 @@
 
         # IaaC
         terraform
+      ];
+    };
 
-        # Kubernetes
+    myNode = pkgs.buildEnv {
+      name = "myNode";
+      paths = [
+        nodejs
+      ];
+    };
+
+    myKube = pkgs.buildEnv {
+      name = "myKube";
+      paths = [
         kubectl
         kustomize
-        helm
+        kubernetes-helm
       ];
     };
   };

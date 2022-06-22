@@ -6,6 +6,7 @@
 {{- $terraform := false -}}{{/* true if this machine is used for Terraform work */}}
 {{- $hugo := false -}}{{/* true if this machine is used for Hugo work */}}
 {{- $github := false -}}{{/* true if this machine is used for Github work */}}
+{{- $nix := false -}}{{/* true if this machine is used for Nix work */}}
 {{- "" -}}
 
 {{- if stdinIsATTY -}}
@@ -44,6 +45,11 @@
 {{-   else -}}
 {{-     $github = promptBool "github" -}}
 {{-   end -}}
+{{-   if hasKey . "nix" -}}
+{{-     $nix = .nix -}}
+{{-   else -}}
+{{-     $nix = promptBool "nix" -}}
+{{-   end -}}
 {{- end -}}
 
 [data]
@@ -54,6 +60,7 @@
   terraform = {{ $terraform }}
   hugo = {{ $hugo }}
   github = {{ $github }}
+  nix = {{ $nix }}
 
 [data.git]
   name = "Anthony Roussel"

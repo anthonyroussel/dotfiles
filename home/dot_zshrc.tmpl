@@ -104,3 +104,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Load asdf
 . $HOME/.asdf/asdf.sh
+
+{{- if .nix }}
+. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+{{ end }}
