@@ -14,35 +14,32 @@
 
 {{- if .aws.enable }}
     awscli2
-{{ end }}
-
+{{- end }}
 {{- if .terraform }}
     terraform
     doctl
-{{ end }}
-
+{{- end }}
 {{- if .nodejs }}
     nodejs
-{{ end }}
-
+{{- end }}
 {{- if .kubernetes }}
     kubectl
     kustomize
     kubernetes-helm
-{{ end }}
-
+{{- end }}
 {{- if .java }}
     maven
     adoptopenjdk-bin
-{{ end }}
-
+{{- end }}
 {{- if .hugo }}
     hugo
 {{- end }}
-
 {{- if .github }}
     gh
-{{ end }}
+{{- end }}
+{{- if .ruby }}
+    ruby
+{{- end }}
   ];
 
   # This value determines the Home Manager release that your

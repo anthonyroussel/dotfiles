@@ -8,6 +8,7 @@
 {{- $github := false -}}{{/* true if this machine is used for Github work */}}
 {{- $nix := false -}}{{/* true if this machine is used for Nix work */}}
 {{- $aws := false -}}{{/* true if this machine is used for AWS work */}}
+{{- $ruby := false -}}{{/* true if this machine is used for Ruby work */}}
 {{- "" -}}
 
 {{- if stdinIsATTY -}}
@@ -56,6 +57,11 @@
 {{-   else -}}
 {{-     $aws = promptBool "aws" -}}
 {{-   end -}}
+{{-   if hasKey . "ruby" -}}
+{{-     $ruby = .ruby -}}
+{{-   else -}}
+{{-     $ruby = promptBool "ruby" -}}
+{{-   end -}}
 {{- end -}}
 
 [data]
@@ -66,6 +72,7 @@ nodejs = {{ $nodejs }}
 terraform = {{ $terraform }}
 hugo = {{ $hugo }}
 github = {{ $github }}
+ruby = {{ $ruby }}
 
 [data.aws]
 enable = {{ $aws }}
