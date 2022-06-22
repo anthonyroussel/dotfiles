@@ -9,9 +9,9 @@ output = {{ .aws.default.output }}
 credential_process = {{ .aws.default.credential_process }}
 {{ end }}
 
+{{- if hasKey .aws "profiles" }}
 # AWS Profiles
 #
-{{- if hasKey .aws "profiles" }}
 {{- range .aws.profiles }}
 [profile {{ .name }}]
 region = {{ .region }}

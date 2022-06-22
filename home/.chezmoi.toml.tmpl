@@ -7,6 +7,7 @@
 {{- $hugo := false -}}{{/* true if this machine is used for Hugo work */}}
 {{- $github := false -}}{{/* true if this machine is used for Github work */}}
 {{- $nix := false -}}{{/* true if this machine is used for Nix work */}}
+{{- $aws := false -}}{{/* true if this machine is used for AWS work */}}
 {{- "" -}}
 
 {{- if stdinIsATTY -}}
@@ -50,6 +51,11 @@
 {{-   else -}}
 {{-     $nix = promptBool "nix" -}}
 {{-   end -}}
+{{-   if hasKey . "aws" -}}
+{{-     $aws = .aws -}}
+{{-   else -}}
+{{-     $aws = promptBool "aws" -}}
+{{-   end -}}
 {{- end -}}
 
 [data]
@@ -60,9 +66,9 @@ nodejs = {{ $nodejs }}
 terraform = {{ $terraform }}
 hugo = {{ $hugo }}
 github = {{ $github }}
-nix = {{ $nix }}
 
 [data.aws]
+enable = {{ $aws }}
 default = {
   region = "eu-west-3",
   output = "json",
@@ -105,3 +111,8 @@ hosts = [
     identity_agent = "/run/user/1000/gnupg/S.gpg-agent.ssh"
   }
 ]
+
+[data.nix]
+enable = {{ $nix }}
+username = "aroussel"
+homeDirectory = "/home/aroussel"

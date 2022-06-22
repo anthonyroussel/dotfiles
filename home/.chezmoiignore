@@ -1,3 +1,7 @@
-{{- if not .nix }}
+{{- if not .nix.enable }}
 .config/nixpkgs
+{{ end }}
+
+{{- if not .aws.enable }}
+.config/aws
 {{ end }}
