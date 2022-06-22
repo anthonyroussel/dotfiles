@@ -1,6 +1,35 @@
 # See https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html
 #
+# AWS Default configuration
+#
 [default]
-  region = {{ .aws.region }}
-  output = {{ .aws.output }}
-  credential_process = {{ .aws.credential_process }}
+region = {{ .aws.default.region }}
+output = {{ .aws.default.output }}
+{{- if hasKey .aws.default "credential_process" }}
+credential_process = {{ .aws.default.credential_process }}
+{{ end }}
+
+# AWS Profiles
+#
+{{- if hasKey .aws "profiles" }}
+{{- range .aws.profiles }}
+[profile {{ .name }}]
+region = {{ .region }}
+output = {{ .output }}
+{{- if hasKey . "credential_process" }}
+credential_process = {{ .credential_process }}
+{{- end -}}
+{{- if hasKey . "source_profile" }}
+source_profile = {{ .source_profile }}
+{{- end -}}
+{{- if hasKey . "role_arn" }}
+role_arn = {{ .role_arn }}
+{{- end -}}
+{{- if hasKey . "mfa_serial" }}
+mfa_serial = {{ .mfa_serial }}
+{{- end -}}
+{{- if hasKey . "duration_seconds" }}
+duration_seconds = {{ .duration_seconds }}
+{{- end }}
+{{ end }}
+{{ end }}

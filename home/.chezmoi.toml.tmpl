@@ -53,46 +53,48 @@
 {{- end -}}
 
 [data]
-  corporate = {{ $corporate }}
-  java = {{ $java }}
-  kubernetes = {{ $kubernetes }}
-  nodejs = {{ $nodejs }}
-  terraform = {{ $terraform }}
-  hugo = {{ $hugo }}
-  github = {{ $github }}
-  nix = {{ $nix }}
+corporate = {{ $corporate }}
+java = {{ $java }}
+kubernetes = {{ $kubernetes }}
+nodejs = {{ $nodejs }}
+terraform = {{ $terraform }}
+hugo = {{ $hugo }}
+github = {{ $github }}
+nix = {{ $nix }}
 
 [data.aws]
-  region = "eu-west-3"
-  output = "json"
+default = {
+  region = "eu-west-3",
+  output = "json",
   credential_process = "gopass show -n aws/anthony.roussel17@gmail.com.json"
+}
 
 [data.git]
-  name = "Anthony Roussel"
-  email = "anthony.roussel17@gmail.com"
-  signingkey = "291831CAD18D76DC0715465F379FF498F4BDCCD9"
+name = "Anthony Roussel"
+email = "anthony.roussel17@gmail.com"
+signingkey = "291831CAD18D76DC0715465F379FF498F4BDCCD9"
 
 {{- if $corporate }}
 [data.proxy]
-  http = "http://localhost:3128"
-  https = "http://localhost:3128"
-  exclusions = [
-    "localhost",
-    "127.0.0.0/8",
-    "10.0.0.0/8",
-    "172.16.0.0/12",
-    "192.168.0.0/16"
-  ]
+http = "http://localhost:3128"
+https = "http://localhost:3128"
+exclusions = [
+  "localhost",
+  "127.0.0.0/8",
+  "10.0.0.0/8",
+  "172.16.0.0/12",
+  "192.168.0.0/16"
+]
 
 [data.npmrc]
-  registry = "http://localhost:8080"
-  always_auth = true
-  registries = """
-  """
+registry = "http://localhost:8080"
+always_auth = true
+registries = """
+"""
 {{- end }}
 
 [data.docker]
-  creds_store = "secretservice"
+creds_store = "secretservice"
 
 [data.ssh]
 hosts = [
