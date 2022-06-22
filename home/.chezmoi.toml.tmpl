@@ -62,6 +62,11 @@
   github = {{ $github }}
   nix = {{ $nix }}
 
+[data.aws]
+  region = "eu-west-3"
+  output = "json"
+  credential_process = "gopass show -n aws/anthony.roussel17@gmail.com.json"
+
 [data.git]
   name = "Anthony Roussel"
   email = "anthony.roussel17@gmail.com"
