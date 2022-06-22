@@ -118,6 +118,3 @@ fi
 
 # Load all files in ~/.bashrc.d/*
 source <(cat ~/.bashrc.d/*.bashrc 2>/dev/null)
-
-# Load asdf
-. $HOME/.asdf/asdf.sh
