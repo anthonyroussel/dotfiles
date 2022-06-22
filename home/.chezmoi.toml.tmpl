@@ -12,56 +12,16 @@
 {{- "" -}}
 
 {{- if stdinIsATTY -}}
-{{-   if hasKey . "corporate" -}}
-{{-     $corporate = .corporate -}}
-{{-   else -}}
-{{-     $corporate = promptBool "corporate" -}}
-{{-   end -}}
-{{-   if hasKey . "java" -}}
-{{-     $java = .java -}}
-{{-   else -}}
-{{-     $java = promptBool "java" -}}
-{{-   end -}}
-{{-   if hasKey . "kubernetes" -}}
-{{-     $kubernetes = .kubernetes -}}
-{{-   else -}}
-{{-     $kubernetes = promptBool "kubernetes" -}}
-{{-   end -}}
-{{-   if hasKey . "nodejs" -}}
-{{-     $nodejs = .nodejs -}}
-{{-   else -}}
-{{-     $nodejs = promptBool "nodejs" -}}
-{{-   end -}}
-{{-   if hasKey . "terraform" -}}
-{{-     $terraform = .terraform -}}
-{{-   else -}}
-{{-     $terraform = promptBool "terraform" -}}
-{{-   end -}}
-{{-   if hasKey . "hugo" -}}
-{{-     $hugo = .hugo -}}
-{{-   else -}}
-{{-     $hugo = promptBool "hugo" -}}
-{{-   end -}}
-{{-   if hasKey . "github" -}}
-{{-     $github = .github -}}
-{{-   else -}}
-{{-     $github = promptBool "github" -}}
-{{-   end -}}
-{{-   if hasKey . "nix" -}}
-{{-     $nix = .nix -}}
-{{-   else -}}
-{{-     $nix = promptBool "nix" -}}
-{{-   end -}}
-{{-   if hasKey . "aws" -}}
-{{-     $aws = .aws -}}
-{{-   else -}}
-{{-     $aws = promptBool "aws" -}}
-{{-   end -}}
-{{-   if hasKey . "ruby" -}}
-{{-     $ruby = .ruby -}}
-{{-   else -}}
-{{-     $ruby = promptBool "ruby" -}}
-{{-   end -}}
+{{- $corporate = promptBool "corporate" -}}
+{{- $java = promptBool "java" -}}
+{{- $kubernetes = promptBool "kubernetes" -}}
+{{- $nodejs = promptBool "nodejs" -}}
+{{- $terraform = promptBool "terraform" -}}
+{{- $hugo = promptBool "hugo" -}}
+{{- $github = promptBool "github" -}}
+{{- $nix = promptBool "nix" -}}
+{{- $aws = promptBool "aws" -}}
+{{- $ruby = promptBool "ruby" -}}
 {{- end -}}
 
 [data]
@@ -122,4 +82,4 @@ hosts = [
 [data.nix]
 enable = {{ $nix }}
 username = "aroussel"
-homeDirectory = "/home/aroussel"
+home_directory = "/home/aroussel"
