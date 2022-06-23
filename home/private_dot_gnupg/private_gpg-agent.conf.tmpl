@@ -1,0 +1,12 @@
+# Set the maximum time a cache entry is valid.
+max-cache-ttl 900
+
+# Set the maximum time a cache entry used for SSH keys is valid.
+max-cache-ttl-ssh 900
+
+{{- if hasKey . "gnupg" }}
+{{ if hasKey .gnupg "pinentry_program" }}
+# Use program filename as the PIN entry.
+pinentry-program /usr/bin/pinentry-curses
+{{- end }}
+{{- end }}
