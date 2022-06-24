@@ -1,5 +1,4 @@
 {{/* boolean feature tags */}}
-{{- $corporate := false -}}{{/* true if this machine should have corporate configuration (proxy, private registries) */}}
 {{- $java := false -}}{{/* true if this machine is used for Java work */}}
 {{- $kubernetes := false -}}{{/* true if this machine is used for Kubernetes work */}}
 {{- $nodejs := false -}}{{/* true if this machine is used for Node.js work */}}
@@ -12,7 +11,6 @@
 {{- "" -}}
 
 {{- if stdinIsATTY -}}
-{{- $corporate = promptBool "corporate" -}}
 {{- $java = promptBool "java" -}}
 {{- $kubernetes = promptBool "kubernetes" -}}
 {{- $nodejs = promptBool "nodejs" -}}
@@ -25,7 +23,6 @@
 {{- end -}}
 
 [data]
-corporate = {{ $corporate }}
 java = {{ $java }}
 kubernetes = {{ $kubernetes }}
 nodejs = {{ $nodejs }}
@@ -47,7 +44,6 @@ name = "Anthony Roussel"
 email = "anthony.roussel17@gmail.com"
 signingkey = "291831CAD18D76DC0715465F379FF498F4BDCCD9"
 
-{{- if $corporate }}
 [data.proxy]
 http = "http://localhost:3128"
 https = "http://localhost:3128"
@@ -62,9 +58,19 @@ exclusions = [
 [data.npmrc]
 registry = "http://localhost:8080"
 always_auth = true
-registries = """
-"""
-{{- end }}
+registries = [
+  {
+    "scope" = "@anthonyroussel",
+    "registry" = "https://npm.pkg.github.com"
+  }
+]
+auth_tokens = [
+  {
+    "registry" = "npm.pkg.github.com",
+    "gopass_entry" = "anthonyroussel_github_npm_token"
+  }
+]
+
 
 [data.docker]
 creds_store = "secretservice"
