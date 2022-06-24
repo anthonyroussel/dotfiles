@@ -1,0 +1,6 @@
+[Unit]
+Description=Automatically rotate AWS IAM keys
+
+[Service]
+Type=oneshot
+ExecStart=%h/.scripts/aws-rotate-iam-keys/src/bin/aws-rotate-iam-keys --profile {{ .aws.rotate_keys.profile }}

@@ -38,6 +38,10 @@ default = {
   output = "json",
   credential_process = "gopass show -n aws/anthony.roussel17@gmail.com.json"
 }
+rotate_keys = {
+  enable = true,
+  profile = "default"
+}
 
 [data.git]
 name = "Anthony Roussel"

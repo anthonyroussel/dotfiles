@@ -4,6 +4,13 @@
 
 {{- if not .aws.enable }}
 .config/aws
+{{ else }}
+
+{{- if not (hasKey .aws "rotate_keys") }}
+.config/systemd/user/
+.config/systemd/user/timers.targets.want/aws-rotate-iam-keys.*
+{{ end }}
+
 {{ end }}
 
 {{- if not .npmrc.enable }}

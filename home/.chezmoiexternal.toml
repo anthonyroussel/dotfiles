@@ -1,3 +1,9 @@
 [".oh-my-zsh"]
   type = "git-repo"
   url = "https://github.com/ohmyzsh/ohmyzsh.git"
+
+{{ if hasKey .aws "rotate_keys" }}
+[".scripts/aws-rotate-iam-keys"]
+  type = "git-repo"
+  url = "https://github.com/rhyeal/aws-rotate-iam-keys"
+{{ end }}
