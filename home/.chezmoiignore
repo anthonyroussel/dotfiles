@@ -7,7 +7,7 @@
 {{ else }}
 
 {{- if not (hasKey .aws "rotate_keys") }}
-.config/systemd/user/
+.config/systemd/user/aws-rotate-iam-keys.*
 .config/systemd/user/timers.targets.want/aws-rotate-iam-keys.*
 {{ end }}
 
@@ -15,4 +15,14 @@
 
 {{- if not .npmrc.enable }}
 .npmrc
+{{ end }}
+
+{{- if not .podman.postgres }}
+.config/systemd/user/container-postgres*.*
+.config/systemd/user/default.targets.want/container-postgres*.*
+{{ end }}
+
+{{- if not .podman.memcached }}
+.config/systemd/user/container-memcached.*
+.config/systemd/user/default.targets.want/container-memcached.*
 {{ end }}
