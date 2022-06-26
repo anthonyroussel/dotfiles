@@ -5,3 +5,7 @@
 {{- if not .aws.enable }}
 .config/aws
 {{ end }}
+
+{{- if not .npmrc.enable }}
+.npmrc
+{{ end }}

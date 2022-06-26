@@ -1,11 +1,19 @@
+{{- with .npmrc }}
 prefix=/home/aroussel/.npm-packages
 cafile=/etc/ssl/certs/ca-certificates.crt
-always-auth={{ .npmrc.always_auth }}
-
-{{- range .npmrc.registries }}
-{{ .scope }}:registry={{ .registry }}
+{{- if hasKey . "always_auth" }}
+always-auth={{ .always_auth }}
 {{- end }}
 
-{{- range .npmrc.auth_tokens }}
+{{- if hasKey . "registries" }}
+{{- range .registries }}
+{{ .scope }}:registry={{ .registry }}
+{{- end }}
+{{- end }}
+
+{{- if hasKey . "auth_tokens" }}
+{{- range .auth_tokens }}
 //{{ .registry }}/:_authToken={{ gopass .gopass_entry }}
+{{- end }}
+{{- end }}
 {{- end }}

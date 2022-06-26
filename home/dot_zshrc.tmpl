@@ -102,7 +102,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-{{- if .nix }}
+{{- if .nix.enable }}
 . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
 . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
 export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/channels${NIX_PATH:+:$NIX_PATH}
