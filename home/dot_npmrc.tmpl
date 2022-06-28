@@ -1,4 +1,4 @@
-{{- with .npmrc }}
+{{- with .npmrc -}}
 prefix=/home/aroussel/.npm-packages
 cafile=/etc/ssl/certs/ca-certificates.crt
 {{- if hasKey . "always_auth" }}

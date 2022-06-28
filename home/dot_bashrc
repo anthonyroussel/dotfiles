@@ -118,3 +118,7 @@ fi
 
 # Load all files in ~/.bashrc.d/*
 source <(cat ~/.bashrc.d/*.bashrc 2>/dev/null)
+
+{{- if .nix.direnv }}
+eval "$(direnv hook bash)"
+{{- end }}
