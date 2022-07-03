@@ -3,6 +3,9 @@ AddKeysToAgent yes
 {{ range .ssh.hosts }}
 Host {{ .host }}
   User {{ .user }}
+{{- if hasKey . "host_name" }}
+  HostName {{ .host_name }}
+{{- end }}
 {{- if hasKey . "identity_agent" }}
   IdentityAgent {{ .identity_agent }}
 {{- end }}

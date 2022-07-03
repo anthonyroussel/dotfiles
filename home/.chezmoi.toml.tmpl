@@ -76,7 +76,6 @@ auth_tokens = [
   }
 ]
 
-
 [data.docker]
 creds_store = "secretservice"
 
@@ -87,6 +86,12 @@ hosts = [
     user = "git",
     identity_file = "~/.ssh/keys/xps",
     identity_agent = "/run/user/1000/gnupg/S.gpg-agent.ssh"
+  },
+  {
+    host = "bastion",
+    host_name = "10.42.42.1",
+    user = "dev",
+    identity_file = "~/.ssh/keys/xps"
   }
 ]
 
