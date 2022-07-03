@@ -109,5 +109,6 @@ export NIX_PATH=$HOME/.nix-defexpr/channels:/nix/var/nix/profiles/per-user/root/
 {{- end }}
 
 {{- if .nix.direnv }}
+export DIRENV_LOG_FORMAT=
 eval "$(direnv hook zsh)"
 {{- end }}

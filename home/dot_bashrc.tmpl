@@ -120,5 +120,6 @@ fi
 source <(cat ~/.bashrc.d/*.bashrc 2>/dev/null)
 
 {{- if .nix.direnv }}
+export DIRENV_LOG_FORMAT=
 eval "$(direnv hook bash)"
 {{- end }}
