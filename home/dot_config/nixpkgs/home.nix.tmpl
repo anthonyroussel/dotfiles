@@ -6,11 +6,38 @@
   home.username = "{{ .nix.username }}";
   home.homeDirectory = "{{ .nix.home_directory }}";
 
+  dconf.settings = {
+    "org/gnome/desktop/calendar" = {
+      show-weekdate = true;
+    };
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      clock-show-seconds = true;
+      clock-show-weekday = true;
+      gtk-theme = "Adwaita-dark";
+      show-battery-percentage = true;
+      text-scaling-factor = 1.10;
+    };
+    "org/gnome/desktop/sound" = {
+      events-sound = false;
+    };
+  };
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     chezmoi
     gopass
     jq
+
+    gnomeExtensions.applications-menu
+    gnomeExtensions.disconnect-wifi
+    gnomeExtensions.openweather
+    gnomeExtensions.places-status-indicator
+    gnomeExtensions.removable-drive-menu
+    gnomeExtensions.sound-output-device-chooser
+    gnomeExtensions.user-themes
+    gnomeExtensions.vitals
+    gnomeExtensions.workspace-indicator
 
 {{- if .aws.enable }}
     awscli2
