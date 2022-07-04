@@ -11,6 +11,11 @@
   home.username = "{{ .nix.username }}";
   home.homeDirectory = "{{ .nix.home_directory }}";
 
+{{- if .nix.direnv }}
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+{{- end }}
+
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "vscode"
   ];
