@@ -25,6 +25,9 @@
       switch-windows = ["<Alt>Tab"];
       switch-windows-backward = ["<Shift><Alt>Tab"];
     };
+    "org/gnome/shell/extensions/openweather" = {
+      city = "48.8588897,2.3200410217200766>Paris, Île-de-France, France métropolitaine, France >0";
+    };
   };
   fonts.fontconfig.enable = true;
 
