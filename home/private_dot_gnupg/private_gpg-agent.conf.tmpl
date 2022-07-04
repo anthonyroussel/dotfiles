@@ -7,6 +7,6 @@ max-cache-ttl-ssh 900
 {{- if hasKey . "gnupg" }}
 {{ if hasKey .gnupg "pinentry_program" }}
 # Use program filename as the PIN entry.
-pinentry-program /usr/bin/pinentry-curses
+pinentry-program {{ .gnupg.pinentry_program }}
 {{- end }}
 {{- end }}
