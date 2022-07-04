@@ -19,6 +19,9 @@
 
 {{- if .aws.enable }}
     awscli2
+    awsebcli
+    eksctl
+    nodePackages.aws-cdk
 {{- end }}
 {{- if .terraform }}
     terraform
