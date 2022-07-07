@@ -108,3 +108,10 @@ pinentry_program = "/usr/bin/pinentry-curses"
 postgres = true
 memcached = true
 redis = true
+
+[[data.pgpass]]
+  host = "localhost"
+  port = "5432"
+  database = "postgres"
+  username = "postgres"
+  gopass_entry = "postgres"
