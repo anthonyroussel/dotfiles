@@ -7,3 +7,9 @@
   type = "git-repo"
   url = "https://github.com/rhyeal/aws-rotate-iam-keys"
 {{ end }}
+
+{{ range .zsh.custom_plugins }}
+[".oh-my-zsh/custom/plugins/{{ .name }}"]
+  type = "{{ .type }}"
+  url = "{{ .url }}"
+{{ end }}
