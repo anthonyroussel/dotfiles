@@ -12,6 +12,9 @@
       show-battery-percentage = true;
       text-scaling-factor = 1.10;
     };
+    "org/gnome/desktop/peripherals/touchpad" = {
+      tap-to-click = true;
+    };
     "org/gnome/desktop/sound" = {
       events-sound = false;
     };
@@ -24,6 +27,10 @@
       switch-applications-backward = ["<Shift><Super>Tab"];
       switch-windows = ["<Alt>Tab"];
       switch-windows-backward = ["<Shift><Alt>Tab"];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      logout = [];
+      power = ["<Control><Alt>Delete"];
     };
     "org/gnome/shell/extensions/openweather" = {
       city = "48.8588897,2.3200410217200766>Paris, Île-de-France, France métropolitaine, France >0";
