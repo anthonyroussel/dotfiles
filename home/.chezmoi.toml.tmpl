@@ -1,24 +1,8 @@
 {{/* boolean feature tags */}}
-{{- $kubernetes := false -}}{{/* true if this machine is used for Kubernetes work */}}
-{{- $github := false -}}{{/* true if this machine is used for Github work */}}
-{{- $nix := false -}}{{/* true if this machine is used for Nix work */}}
-{{- $aws := false -}}{{/* true if this machine is used for AWS work */}}
-{{- "" -}}
-
-{{- if stdinIsATTY -}}
-{{- $kubernetes = promptBool "kubernetes" -}}
-{{- $github = promptBool "github" -}}
-{{- $nix = promptBool "nix" -}}
-{{- $aws = promptBool "aws" -}}
-{{- end -}}
-
-[data]
-java = {{ $java }}
-kubernetes = {{ $kubernetes }}
-github = {{ $github }}
-
-[data.aws]
-  enable = {{ $aws }}
+{{ $kubernetes := promptBoolOnce . "kubernetes" "Kubernetes?" -}}
+{{ $github := promptBoolOnce . "github" "Github?" -}}
+{{ $nix := promptBoolOnce .nix "enable" "Nix?" -}}
+{{ $aws := promptBoolOnce .aws "enable "aws?" -}}
 
 [data.aws.default]
   region = "eu-west-3"
@@ -74,7 +58,6 @@ github = {{ $github }}
   identity_file = "~/.ssh/keys/xps"
 
 [data.nix]
-enable = {{ $nix }}
 username = "aroussel"
 home_directory = "/home/aroussel"
 direnv = true
