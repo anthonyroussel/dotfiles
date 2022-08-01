@@ -36,30 +36,13 @@
     eksctl
     nodePackages.aws-cdk
 {{- end }}
-{{- if .terraform }}
-    terraform
-    doctl
-{{- end }}
-{{- if .nodejs }}
-    nodejs
-{{- end }}
 {{- if .kubernetes }}
     kubectl
     kustomize
     kubernetes-helm
 {{- end }}
-{{- if .java }}
-    maven
-    adoptopenjdk-bin
-{{- end }}
-{{- if .hugo }}
-    hugo
-{{- end }}
 {{- if .github }}
     gh
-{{- end }}
-{{- if .ruby }}
-    ruby
 {{- end }}
   ];
 

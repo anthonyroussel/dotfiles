@@ -1,35 +1,21 @@
 {{/* boolean feature tags */}}
-{{- $java := false -}}{{/* true if this machine is used for Java work */}}
 {{- $kubernetes := false -}}{{/* true if this machine is used for Kubernetes work */}}
-{{- $nodejs := false -}}{{/* true if this machine is used for Node.js work */}}
-{{- $terraform := false -}}{{/* true if this machine is used for Terraform work */}}
-{{- $hugo := false -}}{{/* true if this machine is used for Hugo work */}}
 {{- $github := false -}}{{/* true if this machine is used for Github work */}}
 {{- $nix := false -}}{{/* true if this machine is used for Nix work */}}
 {{- $aws := false -}}{{/* true if this machine is used for AWS work */}}
-{{- $ruby := false -}}{{/* true if this machine is used for Ruby work */}}
 {{- "" -}}
 
 {{- if stdinIsATTY -}}
-{{- $java = promptBool "java" -}}
 {{- $kubernetes = promptBool "kubernetes" -}}
-{{- $nodejs = promptBool "nodejs" -}}
-{{- $terraform = promptBool "terraform" -}}
-{{- $hugo = promptBool "hugo" -}}
 {{- $github = promptBool "github" -}}
 {{- $nix = promptBool "nix" -}}
 {{- $aws = promptBool "aws" -}}
-{{- $ruby = promptBool "ruby" -}}
 {{- end -}}
 
 [data]
 java = {{ $java }}
 kubernetes = {{ $kubernetes }}
-nodejs = {{ $nodejs }}
-terraform = {{ $terraform }}
-hugo = {{ $hugo }}
 github = {{ $github }}
-ruby = {{ $ruby }}
 
 [data.aws]
 enable = {{ $aws }}
