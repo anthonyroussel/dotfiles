@@ -18,68 +18,60 @@ kubernetes = {{ $kubernetes }}
 github = {{ $github }}
 
 [data.aws]
-enable = {{ $aws }}
-default = {
-  region = "eu-west-3",
-  output = "json",
+  enable = {{ $aws }}
+
+[data.aws.default]
+  region = "eu-west-3"
+  output = "json"
   credential_process = "gopass show -n aws/anthony.roussel17@gmail.com.json"
-}
-rotate_keys = {
-  enable = true,
+
+[data.aws.rotate_keys]
+  enable = true
   profile = "default"
-}
 
 [data.git]
-name = "Anthony Roussel"
-email = "anthony.roussel17@gmail.com"
-signingkey = "291831CAD18D76DC0715465F379FF498F4BDCCD9"
+  name = "Anthony Roussel"
+  email = "anthony.roussel17@gmail.com"
+  signingkey = "291831CAD18D76DC0715465F379FF498F4BDCCD9"
 
 [data.proxy]
-http = "http://localhost:3128"
-https = "http://localhost:3128"
-exclusions = [
-  "localhost",
-  "127.0.0.0/8",
-  "10.0.0.0/8",
-  "172.16.0.0/12",
-  "192.168.0.0/16"
-]
+  http = "http://localhost:3128"
+  https = "http://localhost:3128"
+  exclusions = [
+    "localhost",
+    "127.0.0.0/8",
+    "10.0.0.0/8",
+    "172.16.0.0/12",
+    "192.168.0.0/16"
+  ]
 
 [data.npmrc]
-enable = true
-registry = "http://localhost:8080"
-always_auth = true
-registries = [
-  {
-    "scope" = "@anthonyroussel",
-    "registry" = "https://npm.pkg.github.com"
-  }
-]
-auth_tokens = [
-  {
-    "registry" = "npm.pkg.github.com",
-    "gopass_entry" = "anthonyroussel_github_npm_token"
-  }
-]
+  enable = true
+  registry = "http://localhost:8080"
+  always_auth = true
+
+[[data.npmrc.registries]]
+  scope = "@anthonyroussel"
+  registry = "https://npm.pkg.github.com"
+
+[[data.npmrc.auth_tokens]]
+  registry = "npm.pkg.github.com"
+  gopass_entry = "anthonyroussel_github_npm_token"
 
 [data.docker]
-creds_store = "secretservice"
+  creds_store = "secretservice"
 
-[data.ssh]
-hosts = [
-  {
-    host = "github.com",
-    user = "git",
-    identity_file = "~/.ssh/keys/xps",
-    identity_agent = "/run/user/1000/gnupg/S.gpg-agent.ssh"
-  },
-  {
-    host = "bastion",
-    host_name = "10.42.42.1",
-    user = "dev",
-    identity_file = "~/.ssh/keys/xps"
-  }
-]
+[[data.ssh.hosts]]
+  host = "github.com"
+  user = "git"
+  identity_file = "~/.ssh/keys/xps"
+  identity_agent = "/run/user/1000/gnupg/S.gpg-agent.ssh"
+
+[[data.ssh.hosts]]
+  host = "bastion"
+  host_name = "10.42.42.1"
+  user = "dev"
+  identity_file = "~/.ssh/keys/xps"
 
 [data.nix]
 enable = {{ $nix }}
