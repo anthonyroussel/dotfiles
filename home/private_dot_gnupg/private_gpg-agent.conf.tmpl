@@ -4,9 +4,9 @@ max-cache-ttl 900
 # Set the maximum time a cache entry used for SSH keys is valid.
 max-cache-ttl-ssh 900
 
-{{- if hasKey . "gnupg" }}
-{{ if hasKey .gnupg "pinentry_program" }}
+{{- with get . "gnupg" }}
+{{ if hasKey . "pinentry_program" }}
 # Use program filename as the PIN entry.
-pinentry-program {{ .gnupg.pinentry_program }}
+pinentry-program {{ .pinentry_program }}
 {{- end }}
 {{- end }}

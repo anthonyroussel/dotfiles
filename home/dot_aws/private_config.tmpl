@@ -2,17 +2,18 @@
 #
 # AWS Default configuration
 #
+{{- with get . "aws" }}
 [default]
-region = {{ .aws.default.region }}
-output = {{ .aws.default.output }}
-{{- if hasKey .aws.default "credential_process" }}
-credential_process = {{ .aws.default.credential_process }}
+region = {{ .default.region }}
+output = {{ .default.output }}
+{{- if hasKey .default "credential_process" }}
+credential_process = {{ .default.credential_process }}
 {{ end }}
 
-{{- if hasKey .aws "profiles" }}
+{{- if hasKey . "profiles" }}
 # AWS Profiles
 #
-{{- range .aws.profiles }}
+{{- range .profiles }}
 [profile {{ .name }}]
 region = {{ .region }}
 output = {{ .output }}
@@ -33,3 +34,4 @@ duration_seconds = {{ .duration_seconds }}
 {{- end }}
 {{ end }}
 {{ end }}
+{{- end }}

@@ -31,7 +31,3 @@
 .config/systemd/user/container-redis.*
 .config/systemd/user/default.target.wants/container-redis.*
 {{ end }}
-
-{{- if not (hasKey . "pgpass") }}
-.pgpass
-{{ end }}

@@ -1,3 +1,5 @@
-{{- range .pgpass }}
+{{- with get . "pgpass" }}
+{{- range . }}
 {{ .host }}:{{ .port }}:{{ .database }}:{{ .username }}:{{ gopass .gopass_entry }}
+{{- end }}
 {{- end }}

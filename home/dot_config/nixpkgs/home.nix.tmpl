@@ -4,6 +4,7 @@
   imports = [
     ./desktop.nix
     ./vscode.nix
+    ./chrome.nix
   ];
 
   # Home Manager needs a bit of information about you and the
@@ -17,6 +18,7 @@
 {{- end }}
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "google-chrome"
     "vscode"
   ];
 

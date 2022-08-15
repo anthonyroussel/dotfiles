@@ -1,6 +1,7 @@
 AddKeysToAgent yes
 
-{{ range .ssh.hosts }}
+{{- with get . "ssh" }}
+{{ range .hosts }}
 Host {{ .host }}
   User {{ .user }}
 {{- if hasKey . "host_name" }}
@@ -13,3 +14,4 @@ Host {{ .host }}
   IdentityFile {{ .identity_file }}
 {{- end }}
 {{ end }}
+{{- end }}
