@@ -1,4 +1,5 @@
 { lib, pkgs, ... }:
+
 {
   programs.vscode = {
     enable = true;
@@ -19,5 +20,12 @@
       version = "0.28.0";
       sha256 = "1f77f5f9cdf5c7e9600b38604dbd2e2e0f41767de96722463cfc1fa4262b4bbd";
     }];
+    userSettings = {
+      "ruby.useLanguageServer" = true;
+      "ruby.intellisense" = "rubyLocate";
+      "window.zoomLevel" = 2;
+      "editor.insertSpaces" = true;
+      "editor.tabSize" = 2;
+    };
   };
 }
