@@ -83,8 +83,10 @@ plugins=(
   bundler
   genpass
   thefuck
-{{- range .zsh.custom_plugins }}
+{{- with get . "zsh" }}
+{{- range .custom_plugins }}
   {{ .name }}
+{{- end }}
 {{- end }}
 )
 
