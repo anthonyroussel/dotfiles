@@ -32,6 +32,18 @@
       logout = [];
       power = ["<Control><Alt>Delete"];
     };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/aws-mfa" = {
+      name = "aws-otp";
+      binding = "<Control><Shift>a";
+      command = "${pkgs.bash}/bin/bash -c \"${pkgs.oath-toolkit}/bin/oathtool --totp --base32 $(${pkgs.gopass}/bin/gopass -o aws-mfa) | ${pkgs.xclip}/bin/xclip -selection clipboard\"";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      logout = [];
+      power = ["<Control><Alt>Delete"];
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/aws-mfa/"
+      ];
+    };
     "org/gnome/shell/extensions/openweather" = {
       city = "48.8588897,2.3200410217200766>Paris, Île-de-France, France métropolitaine, France >0";
     };
