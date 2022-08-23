@@ -28,10 +28,6 @@
       switch-windows = ["<Alt>Tab"];
       switch-windows-backward = ["<Shift><Alt>Tab"];
     };
-    "org/gnome/settings-daemon/plugins/media-keys" = {
-      logout = [];
-      power = ["<Control><Alt>Delete"];
-    };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/aws-mfa" = {
       name = "aws-otp";
       binding = "<Control><Shift>a";
@@ -42,6 +38,12 @@
       power = ["<Control><Alt>Delete"];
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/aws-mfa/"
+      ];
+    };
+    "org/gnome/shell" = {
+      disabled-extensions = [
+        "ubuntu-appindicators@ubuntu.com"
+        "ubuntu-dock@ubuntu.com"
       ];
     };
     "org/gnome/shell/extensions/openweather" = {
