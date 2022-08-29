@@ -2,5 +2,6 @@
 Description=Automatically rotate AWS IAM keys
 
 [Service]
+Environment="PATH=%h/.nix-profile/bin:/usr/bin"
 Type=oneshot
 ExecStart=%h/.scripts/aws-rotate-iam-keys/src/bin/aws-rotate-iam-keys --profile {{ .aws.rotate_keys.profile }}
