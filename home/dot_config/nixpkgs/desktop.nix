@@ -8,9 +8,10 @@
       color-scheme = "prefer-dark";
       clock-show-seconds = true;
       clock-show-weekday = true;
+      enable-hot-corners = true;
       gtk-theme = "Adwaita-dark";
       show-battery-percentage = true;
-      text-scaling-factor = 1.10;
+      text-scaling-factor = 1.20;
     };
     "org/gnome/desktop/peripherals/touchpad" = {
       tap-to-click = true;
@@ -64,15 +65,29 @@
     gnomeExtensions.workspace-indicator
   ];
 
-  # Add $HOME/.nix-profile/share to XDG_DATA_DIRS
-  xdg.systemDirs.data = [
-    # Nix profiles
-    "\${NIX_STATE_DIR:-/nix/var/nix}/profiles/default/share"
-    "${config.home.profileDirectory}/share"
+  xdg = {
+    enable = true;
+    # Add $HOME/.nix-profile/share to XDG_DATA_DIRS
+    systemDirs.data = [
+      # Nix profiles
+      "\${NIX_STATE_DIR:-/nix/var/nix}/profiles/default/share"
+      "${config.home.profileDirectory}/share"
 
-    # Distribution-specific
-    "/usr/local/share"
-    "/usr/share"
-    "/var/lib/snapd/desktop"
-  ];
+      # Distribution-specific
+      "/usr/local/share"
+      "/usr/share"
+      "/var/lib/snapd/desktop"
+    ];
+    mime = {
+      enable = true;
+    };
+    mimeApps = {
+      enable = true;
+    };
+  };
+
+  # Load Nix during the X Session (.xprofile file)
+  xsession = {
+    enable = true;
+  };
 }
