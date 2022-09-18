@@ -21,11 +21,17 @@
       sha256 = "1f77f5f9cdf5c7e9600b38604dbd2e2e0f41767de96722463cfc1fa4262b4bbd";
     }];
     userSettings = {
-      "ruby.useLanguageServer" = true;
-      "ruby.intellisense" = "rubyLocate";
-      "window.zoomLevel" = 2;
       "editor.insertSpaces" = true;
       "editor.tabSize" = 2;
+      "files.trimTrailingWhitespace" = true;
+      "ruby.format" = "rubocop";
+      "ruby.intellisense" = "rubyLocate";
+      "ruby.useLanguageServer" = true;
+      "ruby.useBundler" = true;
+      "[ruby]" = {
+        "editor.defaultFormatter" = "rebornix.ruby";
+      };
+      "window.zoomLevel" = 2;
     };
   };
 }
